@@ -1,0 +1,50 @@
+{
+    "name": "马德里自动预约",
+    "version": "1.0",
+    "description": "sede.administracionespublicas.gob.es",
+    "permissions": ["tabs","activeTab","declarativeContent","storage"],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "browser_action": {
+        "default_popup": "popup.html"
+      },
+      "content_scripts": [
+        {
+          "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/index.html"],
+          "run_at": "document_end",
+          "js": ["autofill_index.js"]
+        },{
+          "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/citar*"],
+          "run_at": "document_end",
+          "js": ["autofill_citar.js"]
+        },
+        {
+          "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/acInfo"],
+          "run_at": "document_end",
+          "js": ["autofill_acinfo.js"]
+        },
+        {
+          "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/acEntrada"],
+          "run_at": "document_end",
+          "js": ["autofill_acentrada.js"]
+        },
+        {
+          "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/acValidarEntrada"],
+          "run_at": "document_end",
+          "js": ["autofill_acvalidar.js"]
+        },
+        {
+          "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/acCitar"],
+          "run_at": "document_end",
+          "js": ["autofill_acCitar.js"]
+        },
+        {
+          "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/acVerFormulario"],
+          "run_at": "document_end",
+          "js": ["autofill_acVerFormulario.js"]
+        }
+      ],
+    "manifest_version": 2
+  }

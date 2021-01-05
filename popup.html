@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      .restore {
+        margin-top: 20px;
+      }
+
+      h3 {
+        display:inline-block;
+        width: 260px;
+      }
+
+      button {
+        height: 40px;
+        width: 200px;
+        outline: none;
+        margin-top: 10px;
+        margin-right: 30px;
+      }
+
+      select {
+        height: 30px;
+        margin: 10px 10px 10px 0px;
+      }
+
+      input {
+        height: 20px;
+        margin: 10px 10px 10px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">填写自动预约的信息</h1>
+    <button id="restore">恢复上次填写的信息</button>
+    <!-- 选择城市 -->
+    <!-- PROVINCIAS DISPONIBLES -->
+    <div>
+      <h3>PROVINCIAS DISPONIBLES</h3>
+      <select id="provice" name="form" autocomplete="address-level1">
+        <option selected="selected" value="">Seleccionar ...</option>
+        <option value="/icpplus/citar?p=15&amp;locale=es">A Coruña</option>
+        <option value="/icpplus/citar?p=2&amp;locale=es">Albacete</option>
+        <option value="/icpco/citar?p=3&amp;locale=es">Alicante</option>
+        <option value="/icpplus/citar?p=4&amp;locale=es">Almería</option>
+        <option value="/icpplus/citar?p=1&amp;locale=es">Araba</option>
+        <option value="/icpplus/citar?p=33&amp;locale=es">Asturias</option>
+        <option value="/icpplus/citar?p=5&amp;locale=es">Ávila</option>
+        <option value="/icpplus/citar?p=6&amp;locale=es">Badajoz</option>
+        <option value="/icpplustie/citar?p=8&amp;locale=es">Barcelona</option>
+        <option value="/icpplus/citar?p=48&amp;locale=es">Bizkaia</option>
+        <option value="/icpplus/citar?p=9&amp;locale=es">Burgos</option>
+        <option value="/icpplus/citar?p=10&amp;locale=es">Cáceres</option>
+        <option value="/icpplus/citar?p=11&amp;locale=es">Cádiz</option>
+        <option value="/icpplus/citar?p=39&amp;locale=es">Cantabria</option>
+        <option value="/icpplus/citar?p=12&amp;locale=es">Castellón</option>
+        <option value="/icpplus/citar?p=51&amp;locale=es">Ceuta</option>
+        <option value="/icpplus/citar?p=13&amp;locale=es">Ciudad Real</option>
+        <option value="/icpplus/citar?p=14&amp;locale=es">Córdoba</option>
+        <option value="/icpplus/citar?p=16&amp;locale=es">Cuenca</option>
+        <option value="/icpplus/citar?p=20&amp;locale=es">Gipuzkoa</option>
+        <option value="/icpplus/citar?p=17&amp;locale=es">Girona</option>
+        <option value="/icpplus/citar?p=18&amp;locale=es">Granada</option>
+        <option value="/icpplus/citar?p=19&amp;locale=es">Guadalajara</option>
+        <option value="/icpplus/citar?p=21&amp;locale=es">Huelva</option>
+        <option value="/icpplus/citar?p=22&amp;locale=es">Huesca</option>
+        <option value="/icpco/citar?p=7&amp;locale=es">Illes Balears</option>
+        <option value="/icpplus/citar?p=23&amp;locale=es">Jaén</option>
+        <option value="/icpplus/citar?p=26&amp;locale=es">La Rioja</option>
+        <option value="/icpco/citar?p=35&amp;locale=es">Las Palmas</option>
+        <option value="/icpplus/citar?p=24&amp;locale=es">León</option>
+        <option value="/icpplus/citar?p=25&amp;locale=es">Lleida</option>
+        <option value="/icpplus/citar?p=27&amp;locale=es">Lugo</option>
+        <option value="/icpplustiem/citar?p=28&amp;locale=es">Madrid</option>
+        <option value="/icpco/citar?p=29&amp;locale=es">Málaga</option>
+        <option value="/icpplus/citar?p=52&amp;locale=es">Melilla</option>
+        <option value="/icpplus/citar?p=30&amp;locale=es">Murcia</option>
+        <option value="/icpplus/citar?p=31&amp;locale=es">Navarra</option>
+        <option value="/icpplus/citar?p=32&amp;locale=es">Orense</option>
+        <option value="/icpplus/citar?p=34&amp;locale=es">Palencia</option>
+        <option value="/icpplus/citar?p=36&amp;locale=es">Pontevedra</option>
+        <option value="/icpplus/citar?p=37&amp;locale=es">Salamanca</option>
+        <option value="/icpco/citar?p=38&amp;locale=es">S.Cruz Tenerife</option>
+        <option value="/icpplus/citar?p=40&amp;locale=es">Segovia</option>
+        <option value="/icpplus/citar?p=41&amp;locale=es">Sevilla</option>
+        <option value="/icpplus/citar?p=42&amp;locale=es">Soria</option>
+        <option value="/icpplus/citar?p=43&amp;locale=es">Tarragona</option>
+        <option value="/icpplus/citar?p=44&amp;locale=es">Teruel</option>
+        <option value="/icpplus/citar?p=45&amp;locale=es">Toledo</option>
+        <option value="/icpplus/citar?p=46&amp;locale=es">Valencia</option>
+        <option value="/icpplus/citar?p=47&amp;locale=es">Valladolid</option>
+        <option value="/icpplus/citar?p=49&amp;locale=es">Zamora</option>
+        <option value="/icpplus/citar?p=50&amp;locale=es">Zaragoza</option>
+      </select>
+    </div>
+    <div>
+      <!-- 警察局选择 -->
+      <!-- TRÁMITES CUERPO NACIONAL DE POLICÍA -->
+      <h3>TRÁMITES CUERPO NACIONAL DE POLICÍA</h3>
+      <select
+        name="tramiteGrupo[0]"
+        id="police"
+        onchange="eliminarSeleccionOtrosGrupos(0)"
+        class="mf-input__l"
+      >
+        <option value="-1">
+          Despliegue para ver trámites disponibles en esta provincia
+        </option>
+        <option value="4055">
+          ASILO - OFICINA DE ASILO Y REFUGIO. Entrevista Telefónica Trabajador/a
+          Social. Calle Pradillo
+        </option>
+        <option value="4104">ASILO - PRIMERA CITA-provincia de Madrid</option>
+        <option value="4083">
+          ASILO-OFIC. DE ASILO Y REFUGIO.EXP/REN TIE Protección Internacional y
+          Documentos Viaje.c/Pradillo 40
+        </option>
+        <option value="4082">
+          ASILO-OFICINA DE ASILO Y REFUGIO."nueva normalidad”
+          Expedición/Renovación Documentos.C/ Pradillo 40
+        </option>
+        <option value="4090">POLICÍA - PRORROGA DE ESTANCIA CON VISADO</option>
+        <option value="4091">POLICÍA - PRORROGA DE ESTANCIA SIN VISADO</option>
+        <option value="4088">
+          POLICÍA - RECOGIDA DE LA T.I.E. CUYA AUTORIZACIÓN RESUELVE LA
+          DIRECCIÓN GENERAL DE MIGRACIONES
+        </option>
+        <option value="4036">
+          POLICIA - RECOGIDA DE TARJETA DE IDENTIDAD DE EXTRANJERO (TIE)
+        </option>
+        <option value="4031">POLICIA-ASIGNACIÓN DE NIE</option>
+        <option value="20">POLICIA-AUTORIZACIÓN DE REGRESO</option>
+        <option value="4038">
+          POLICIA-CERTIFICADO DE REGISTRO DE CIUDADANO DE LA U.E.
+        </option>
+        <option value="4032">
+          POLICIA-Certificado de residente o no residente
+        </option>
+        <option value="4049">
+          POLICIA-CERTIFICADOS (DE RESIDENCIA, DE NO RESIDENCIA Y DE
+          CONCORDANCIA)
+        </option>
+        <option value="4096">POLICIA-CERTIFICADOS Y ASIGNACION NIE</option>
+        <option value="4047">
+          POLICÍA-EXPEDICIÓN DE TARJETAS CUYA AUTORIZACIÓN RESUELVE LA DIRECCIÓN
+          GENERAL DE MIGRACIONES
+        </option>
+        <option value="4094">
+          POLICÍA-EXP.TARJETA ASOCIADA AL ACUERDO DE RETIRADA CIUDADANOS
+          BRITÁNICOS Y SUS FAMILIARES (BREXIT)
+        </option>
+        <option value="4097">
+          POLICIA-INFORMACION DE TRÁMITES DE LA COMISARÍA DE POLICIA
+        </option>
+        <option value="4010">
+          POLICIA-TOMA DE HUELLAS (EXPEDICIÓN DE TARJETA) Y RENOVACIÓN DE
+          TARJETA DE LARGA DURACIÓN
+        </option>
+      </select>
+    </div>
+
+    <div><h3>NIE</h3> <input type="text" id="nienumber" /></div>
+    <div>
+      <h3>Nombre y apellidos</h3>
+      <input type="text" id="niename" />
+    </div>
+    <div>
+      <h3>País de nacionalidad</h3>
+      <!-- 国家选择 -->
+      <select
+        id="country"
+        autocomplete="country-name"
+        data-live-search="true"
+        title="País de nacionalidad"
+        data-size="10"
+        class="mf-input__m"
+        required="required"
+        name="txtPaisNac"
+      >
+        <option value="0">Seleccionar ...</option>
+        <option value="401">AFGANISTAN</option>
+        <option value="102">ALBANIA</option>
+        <option value="103">ALEMANIA</option>
+        <option value="133">ANDORRA</option>
+        <option value="301">ANGOLA</option>
+        <option value="258">ANGUILLA</option>
+        <option value="255">ANTIGUA Y BARBUDA</option>
+        <option value="200">ANTILLAS NL.</option>
+        <option value="600">APATRIDA</option>
+        <option value="403">ARABIA SAUDI</option>
+        <option value="304">ARGELIA</option>
+        <option value="202">ARGENTINA</option>
+        <option value="142">ARMENIA</option>
+        <option value="257">ARUBA</option>
+        <option value="500">AUSTRALIA</option>
+        <option value="104">AUSTRIA</option>
+        <option value="143">AZERBAYAN</option>
+        <option value="203">BAHAMAS</option>
+        <option value="405">BAHREIN</option>
+        <option value="432">BANGLADESH</option>
+        <option value="205">BARBADOS</option>
+        <option value="105">BELGICA</option>
+        <option value="207">BELICE</option>
+        <option value="302">BENIN</option>
+        <option value="407">BHUTAN</option>
+        <option value="144">BIELORRUSIA O BELARUS</option>
+        <option value="204">BOLIVIA</option>
+        <option value="156">BOSNIA-HERZEGOVINA</option>
+        <option value="305">BOTSWANA</option>
+        <option value="206">BRASIL</option>
+        <option value="409">BRUNEI DARUSSALAM</option>
+        <option value="134">BULGARIA</option>
+        <option value="303">BURKINA FASO</option>
+        <option value="321">BURUNDI</option>
+        <option value="315">CABO VERDE</option>
+        <option value="402">CAMBOYA</option>
+        <option value="308">CAMERUN</option>
+        <option value="208">CANADA</option>
+        <option value="310">CENTROAFRICA REPUBLICA</option>
+        <option value="372">CHAD</option>
+        <option value="210">CHILE</option>
+        <option value="406">CHINA</option>
+        <option value="107">CHIPRE</option>
+        <option value="212">COLOMBIA</option>
+        <option value="311">COMORES</option>
+        <option value="312">CONGO BRAZZAVILLE</option>
+        <option value="460">COREA, REP. POP. DEMOC.</option>
+        <option value="410">COREA, REPUBLICA</option>
+        <option value="314">COSTA DE MARFIL</option>
+        <option value="214">COSTA RICA</option>
+        <option value="140">CROACIA</option>
+        <option value="216">CUBA</option>
+        <option value="108">DINAMARCA</option>
+        <option value="317">DJIBOUTI</option>
+        <option value="217">DOMINICA</option>
+        <option value="218">DOMINICANA REPUBLICA</option>
+        <option value="222">ECUADOR</option>
+        <option value="224">EEUU</option>
+        <option value="300">EGIPTO</option>
+        <option value="220">EL SALVADOR</option>
+        <option value="136">EL VATICANO</option>
+        <option value="429">EMIRATOS ARABES UNIDOS</option>
+        <option value="384">ERITREA</option>
+        <option value="158">ESLOVAQUIA</option>
+        <option value="141">ESLOVENIA</option>
+        <option value="109">ESPAÑA</option>
+        <option value="137">ESTONIA</option>
+        <option value="318">ETIOPIA</option>
+        <option value="550">FIDJI</option>
+        <option value="411">FILIPINAS</option>
+        <option value="110">FINLANDIA</option>
+        <option value="111">FRANCIA</option>
+        <option value="320">GABON</option>
+        <option value="323">GAMBIA</option>
+        <option value="145">GEORGIA</option>
+        <option value="322">GHANA</option>
+        <option value="229">GRANADA REPUBLICA</option>
+        <option value="113">GRECIA</option>
+        <option value="228">GUATEMALA</option>
+        <option value="225">GUAYANA</option>
+        <option value="324">GUINEA ECUATORIAL</option>
+        <option value="325">GUINEA REPUBLICA</option>
+        <option value="328">GUINEA-BISSAU</option>
+        <option value="230">HAITI</option>
+        <option value="123">HOLANDA</option>
+        <option value="232">HONDURAS</option>
+        <option value="114">HUNGRIA</option>
+        <option value="412">INDIA</option>
+        <option value="414">INDONESIA</option>
+        <option value="413">IRAK</option>
+        <option value="415">IRAN</option>
+        <option value="115">IRLANDA</option>
+        <option value="116">ISLANDIA</option>
+        <option value="520">ISLAS MARSCHALL</option>
+        <option value="417">ISRAEL</option>
+        <option value="117">ITALIA</option>
+        <option value="233">JAMAICA</option>
+        <option value="416">JAPON</option>
+        <option value="419">JORDANIA</option>
+        <option value="146">KAZAJSTAN</option>
+        <option value="336">KENIA</option>
+        <option value="147">KIRGUISTAN</option>
+        <option value="501">KIRIBATI</option>
+        <option value="421">KUWAIT</option>
+        <option value="418">LAOS</option>
+        <option value="436">LAS MALDIVAS</option>
+        <option value="337">LESOTHO</option>
+        <option value="138">LETONIA</option>
+        <option value="423">LIBANO</option>
+        <option value="342">LIBERIA</option>
+        <option value="344">LIBIA</option>
+        <option value="118">LIECHTENSTEIN</option>
+        <option value="139">LITUANIA</option>
+        <option value="119">LUXEMBURGO</option>
+        <option value="463">MACAO</option>
+        <option value="159">MACEDONIA</option>
+        <option value="354">MADAGASCAR</option>
+        <option value="425">MALASIA</option>
+        <option value="900">MALASIA - GRAN BRETAÑA</option>
+        <option value="346">MALAWI</option>
+        <option value="347">MALI</option>
+        <option value="120">MALTA</option>
+        <option value="348">MARRUECOS</option>
+        <option value="349">MAURICIO</option>
+        <option value="350">MAURITANIA</option>
+        <option value="234">MEJICO</option>
+        <option value="525">MICRONESIA</option>
+        <option value="148">MOLDAVIA</option>
+        <option value="121">MONACO</option>
+        <option value="427">MONGOLIA</option>
+        <option value="160">MONTENEGRO</option>
+        <option value="351">MOZAMBIQUE</option>
+        <option value="400">MYANMAR</option>
+        <option value="353">NAMIBIA</option>
+        <option value="541">NAURU</option>
+        <option value="420">NEPAL</option>
+        <option value="236">NICARAGUA</option>
+        <option value="360">NIGER</option>
+        <option value="352">NIGERIA</option>
+        <option value="122">NORUEGA</option>
+        <option value="540">NUEVA ZELANDA</option>
+        <option value="444">OMAN</option>
+        <option value="424">PAKISTAN</option>
+        <option value="238">PANAMA</option>
+        <option value="542">PAPUA NUEVA GUINEA</option>
+        <option value="240">PARAGUAY</option>
+        <option value="242">PERU</option>
+        <option value="124">POLONIA</option>
+        <option value="125">PORTUGAL</option>
+        <option value="244">PUERTO RICO</option>
+        <option value="431">QATAR</option>
+        <option value="112">REINO UNIDO</option>
+        <option value="380">REP. DEMOCRATICA DEL CONGO (EX-ZAIRE)</option>
+        <option value="157">REPUBLICA CHECA</option>
+        <option value="355">REUNION-COMO</option>
+        <option value="306">RUANDA</option>
+        <option value="127">RUMANIA</option>
+        <option value="149">RUSIA</option>
+        <option value="551">SALOMON</option>
+        <option value="552">SAMOA OCCIDENTAL</option>
+        <option value="256">SAN CRISTOBAL Y NEVIS</option>
+        <option value="135">SAN MARINO</option>
+        <option value="254">SAN VICENTE</option>
+        <option value="253">SANTA LUCIA</option>
+        <option value="361">SANTO TOME Y PRINCIPE</option>
+        <option value="363">SEICHELLES</option>
+        <option value="362">SENEGAL</option>
+        <option value="366">SENEGAMBIA</option>
+        <option value="155">SERBIA</option>
+        <option value="364">SIERRA LEONA</option>
+        <option value="426">SINGAPUR</option>
+        <option value="433">SIRIA</option>
+        <option value="365">SOMALIA</option>
+        <option value="404">SRI LANKA</option>
+        <option value="367">SUDAFRICA</option>
+        <option value="368">SUDAN</option>
+        <option value="128">SUECIA</option>
+        <option value="129">SUIZA</option>
+        <option value="250">SURINAM</option>
+        <option value="371">SWAZILANDIA</option>
+        <option value="154">TADJIKISTAN</option>
+        <option value="408">TAIWAN</option>
+        <option value="370">TANZANIA</option>
+        <option value="428">THAILANDIA</option>
+        <option value="465">TIMOR ORIENTAL</option>
+        <option value="374">TOGO</option>
+        <option value="554">TONGA</option>
+        <option value="245">TRINIDAD Y TOBAGO</option>
+        <option value="378">TUNEZ</option>
+        <option value="151">TURKMENIA</option>
+        <option value="130">TURQUIA</option>
+        <option value="560">TUVALU</option>
+        <option value="152">UCRANIA</option>
+        <option value="358">UGANDA</option>
+        <option value="246">URUGUAY</option>
+        <option value="153">UZBEKISTAN</option>
+        <option value="565">VANUATU</option>
+        <option value="248">VENEZUELA</option>
+        <option value="430">VIETNAM</option>
+        <option value="434">YEMEN</option>
+        <option value="382">ZAMBIA</option>
+        <option value="357">ZIMBABWE</option>
+      </select>
+    </div>
+    <div>
+      <h3>Oficina:</h3>
+      <select id="idSede" data-live-search="true" title="Oficina" data-size="10" class="mf-input__xl" name="idSede">
+        <option value="26">CNP-Comisaría de Torrejón de Ardoz, Hilados, 15</option>
+        <option value="30">CNP-Comisaría de Rivas-Vaciamadrid, José Hierro, 82</option>
+        <option value="22">CNP-Comisaría de Leganés, Avda. de Universidad, 27</option>
+      </select>
+    </div>
+    <div>
+      <h3>Teléfono</h3>
+      <input type="text" id="phone" />
+    </div>
+    <div>
+      <h3>Email</h3>
+      <input type="text" id="email" />
+    </div>
+
+  <div>
+    <h3>预约失败时重试的间隔时间（秒）</h3>
+    <input id="retryduration" type="number" value="300">
+    <h3>秒</h3>
+  </div>
+
+    <button id="save" onclick="onSave">保存信息</button>
+    <button id="start" onclick="onStart">保存并开始预约</button>
+    <script src="popup.js"></script>
+  </body>
+</html>
